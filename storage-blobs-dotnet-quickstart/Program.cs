@@ -56,7 +56,6 @@ namespace storage_blobs_dotnet_quickstart
 
         private static async Task ProcessAsync()
         {
-            CloudStorageAccount storageAccount = null;
             CloudBlobContainer cloudBlobContainer = null;
             string sourceFile = null;
             string destinationFile = null;
@@ -68,7 +67,7 @@ namespace storage_blobs_dotnet_quickstart
             var storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
             // Check whether the connection string can be parsed.
-            if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
+            if (CloudStorageAccount.TryParse(storageConnectionString, out var storageAccount))
                 try
                 {
                     // Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
